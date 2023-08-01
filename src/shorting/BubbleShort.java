@@ -16,11 +16,11 @@ public class BubbleShort {
             list[i] = number2;
         }
 
-        doShorting(list);
+        int[] sortedlist = doShorting(list);
 
         System.out.println("*Sorted List*");
-        for (int i = 0; i < list.length; i++){
-            System.out.println(list[i]);
+        for (int i : sortedlist) {
+            System.out.println(i);
         }
 
     }
