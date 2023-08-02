@@ -1,5 +1,6 @@
 package array;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayOperations {
@@ -21,7 +22,7 @@ public class ArrayOperations {
             }
             displayArray(ary,array_input_size);
 
-            System.out.print("Enter the number which you want to add in array : ");
+            System.out.print("Enter the number which you want to insert in array : ");
             int add_number = scanner.nextInt();
             System.out.print("Enter the index number which you want to add in array : ");
             int index_number = scanner.nextInt();
@@ -40,11 +41,30 @@ public class ArrayOperations {
                 }else {
                     deleteArray(ary,delete_index_number,array_input_size);
                 }
+
+                System.out.print("Do you want to reverse the array (Yes: 1, No: 2) : ");
+                int reverse = scanner.nextInt();
+                if (reverse == 1){
+                    reverseArray(ary);
+                }
+
                 System.out.print("Enter the number which you want to search in array : ");
                 int search_index_number = scanner.nextInt();
                 searchArray(ary,search_index_number,array_input_size);
             }
         }
+    }
+
+    private static void reverseArray(int[] ary) {
+        int length = ary.length;
+        int[] reverseAry = new int[ary.length];
+
+        for (int i : ary) {
+            reverseAry[length - 1] = i;
+            length = length - 1;
+        }
+
+        System.out.println(Arrays.toString(reverseAry));
     }
 
     //Traversing
