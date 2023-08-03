@@ -32,20 +32,20 @@ public class FindMinMaxNumber {
     }
 
     private static int findMax(int[] list, int number2) {
-        int max = list[0];
+        int value = list[0];
         if (number2 == 1){
             for (int j : list) {
-                if (j > max) {
-                    max = j;
+                if (j > value) {
+                    value = j;
                 }
             }
         }else {
             for (int j : list) {
-                if (j < max) {
-                    max = j;
+                if (j < value) {
+                    value = j;
                 }
             }
         }
-        return max;
+        return value;
     }
 }

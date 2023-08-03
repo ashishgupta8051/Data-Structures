@@ -1,6 +1,6 @@
 package codingquestions;
 
-public class PossibleStrings {
+public class PossibleSetOfStrings {
 
     // Print all possible strings of length k that can be formed from a set of n characters  set[] = {'a', 'b'}, k = 3
     // Output:  aaa, aab, aba, abb, baa, bab, bba, bbb,
