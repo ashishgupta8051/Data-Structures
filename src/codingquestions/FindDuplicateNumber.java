@@ -15,15 +15,15 @@ public class FindDuplicateNumber {
             list[i] = number2;
         }
 
-        findDuplicateNumber(list);
+        findDuplicateNumber(list, list.length);
     }
 
-    private static void findDuplicateNumber(int[] list) {
+    private static void findDuplicateNumber(int[] list, int length) {
         int duplicateNumber = -1;
         int position = 0;
         int index = 0;
-        for (int i = 0; i < list.length; i++){
-            for (int j = i + 1; j < list.length; j++){
+        for (int i = 0; i < length; i++){
+            for (int j = i + 1; j < length; j++){
                 if (list[i] == list[j]){
                     duplicateNumber = list[i];
                     position = j + 1;
@@ -31,6 +31,7 @@ public class FindDuplicateNumber {
                     break;
                 }
             }
+
         }
 
         if (duplicateNumber == -1){
@@ -42,24 +43,26 @@ public class FindDuplicateNumber {
         }
 
         displayArray(list);
-
+        
         System.out.println();
         System.out.println("Do you want to remove duplicate number (Yes: 1, No: 2) : ");
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
         if (number == 1){
-            deleteArray(list, index);
+            deleteArray(list, index, list.length);
         }
     }
 
 
-    private static void deleteArray(int[] ary, int delete_index_number) {
-        for (int i = delete_index_number; i < ary.length; i++) {
-            if (ary[i] == delete_index_number){
-                ary[i] = 
-            }
+    private static void deleteArray(int[] ary, int delete_index_number, int length) {
+        for (int i = delete_index_number; i <= length; i++) {
+            ary[i] = ary[i - 1];
         }
-        displayArray(ary);
+/*
+        for (int value : ary) {
+            System.out.print(value+" ");
+        }*/
+
     }
 
     private static void displayArray(int[] ary) {
