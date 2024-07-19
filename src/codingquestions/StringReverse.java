@@ -4,7 +4,8 @@ public class StringReverse {
     public static void main(String[] args) {
         String name = "ashish";
 
-//        StringBuilder reversedString = new StringBuilder(name).reverse();
+        StringBuilder stringBuilder = new StringBuilder(name).reverse();
+        System.out.println("Reversed String with StringBuilder: "+stringBuilder);
 
         char[] charArray = name.toCharArray();
 
