@@ -1,7 +1,9 @@
 package array;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class ArrayOperations {
     public static void main(String[] args) {
@@ -20,7 +22,7 @@ public class ArrayOperations {
                 int number = scanner.nextInt();
                 ary[i] = number;
             }
-            displayArray(ary, array_input_size);
+            displayArray(ary);
 
             System.out.print("Enter the number which you want to insert in array : ");
             int add_number = scanner.nextInt();
@@ -33,19 +35,19 @@ public class ArrayOperations {
                 System.out.println("Your array input size : " + array_input_size);
                 System.out.println("You don't have enough space for insert element .......");
             } else {
-                insertElement(ary, array_input_size, add_number, index_number);
+                insertElement(ary, add_number, index_number);
                 System.out.print("Enter the index number which you want to delete in array : ");
                 int delete_index_number = scanner.nextInt();
                 if (delete_index_number > array_input_size) {
                     System.out.print("Please enter correct index number array input size is : " + array_input_size);
                 } else {
-                    deleteArray(ary, delete_index_number, array_input_size);
+                    ary = deleteArray(ary, delete_index_number, array_input_size);
                 }
 
                 System.out.print("Do you want to reverse the array (Yes: 1, No: 2) : ");
                 int reverse = scanner.nextInt();
                 if (reverse == 1) {
-                    reverseArray(ary);
+                    ary = reverseArray(ary);
                 }
 
                 System.out.print("Enter the number which you want to search in array : ");
@@ -55,7 +57,7 @@ public class ArrayOperations {
         }
     }
 
-    private static void reverseArray(int[] ary) {
+    private static int[] reverseArray(int[] ary) {
         int length = ary.length;
         int[] reverseAry = new int[ary.length];
 
@@ -64,31 +66,35 @@ public class ArrayOperations {
             length = length - 1;
         }
 
-        System.out.println(Arrays.toString(reverseAry));
+        displayArray(reverseAry);
+        return reverseAry;
     }
 
     //Traversing
-    private static void displayArray(int[] ary, int array_input_size) {
-        System.out.println("Array is ");
-        for (int i = 0; i < array_input_size; i++) {
-            System.out.print(ary[i] + " ");
+    private static void displayArray(int[] ary) {
+        for (int j : ary) {
+            System.out.print(j + " ");
         }
         System.out.println();
     }
 
     //Insertion
-    static void insertElement(int[] ary, int array_input_size, int insert_element, int array_index) {
+    static void insertElement(int[] ary, int insert_element, int array_index) {
         ary[array_index] = insert_element;
-        array_input_size = array_input_size + 1;
-        displayArray(ary, array_input_size);
+        displayArray(ary);
     }
 
     //Deletion
-    private static void deleteArray(int[] ary, int delete_index_number, int array_input_size) {
-        for (int i = delete_index_number; i < array_input_size - 1; i++) {
-            ary[i] = ary[i + 1];
+    private static int[] deleteArray(int[] ary, int delete_index_number, int array_input_size) {
+        ArrayList<Integer> deleteList = new ArrayList<>();
+        for (int i = 0; i < ary.length; i++) {
+            if (i != delete_index_number) {
+                deleteList.add(ary[i]);
+            }
         }
-        displayArray(ary, array_input_size);
+        ary = convertArrayListToIntArray(deleteList);
+        displayArray(ary);
+        return ary;
     }
 
     //Searching
@@ -106,5 +112,17 @@ public class ArrayOperations {
             System.out.print("Value not found");
         }
 
+    }
+
+    public static int[] convertArrayListToIntArray(ArrayList<Integer> list) {
+        // Initialize the int array with the same size as the ArrayList
+        int[] array = new int[list.size()];
+
+        // Iterate over the ArrayList and copy elements to the int array
+        for (int i = 0; i < list.size(); i++) {
+            array[i] = list.get(i);
+        }
+
+        return array;
     }
 }
