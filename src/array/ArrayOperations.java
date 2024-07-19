@@ -22,6 +22,7 @@ public class ArrayOperations {
             }
             displayArray(ary,array_input_size);
 
+
             System.out.print("Enter the number which you want to insert in array : ");
             int add_number = scanner.nextInt();
             System.out.print("Enter the index number which you want to add in array : ");
