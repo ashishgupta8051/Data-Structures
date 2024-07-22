@@ -22,12 +22,10 @@ public class BinarySearch {
         System.out.print("Enter a Search Number : ");
         int searchNum = scanner.nextInt();
 
-        int start = 0;
-        int end = list.size() - 1;
-        int check = doSearching(list, searchNum, start, end);
+        int foundValue = doSearching(list, searchNum, 0, list.size() - 1);
 
-        if (check != -1){
-            System.out.println("Found");
+        if (foundValue != -1){
+            System.out.println("Fount search number: "+searchNum+" at location: "+foundValue);
         }else {
             System.out.println("Not Found");
         }
@@ -36,19 +34,17 @@ public class BinarySearch {
     private static int doSearching(ArrayList<Integer> list, int searchNum, int start, int end) {
         int mid;
         if (end >= start){
-            mid = start + end / 2;
-
+            mid = (start + end) / 2;
             if (list.get(mid) == searchNum){
                 return mid + 1;
-            }else if (list.get(mid) < searchNum){
-                return doSearching(list,searchNum,mid + 1,end);
+            } else if (list.get(mid) < searchNum){
+                return doSearching(list, searchNum, mid + 1, end);
             }else {
-                return doSearching(list,searchNum,start,mid - 1);
+                return doSearching(list, searchNum, start , mid - 1);
             }
         }
         return -1;
     }
 }
-
 //Time Complexity BC: O(n), AC: O(logn), WC: O(logn)
 

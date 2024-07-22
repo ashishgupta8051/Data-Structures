@@ -25,15 +25,13 @@ public class LinearSearch {
     }
 
     private static void doSearching(ArrayList<Integer> list, Integer searchNum) {
-        Boolean value = false;
+        boolean value = false;
         int index = 0;
         for (int i = 0; i < list.size(); i++){
-            if (Objects.equals(searchNum, list.get(i))){
+            if (list.get(i).equals(searchNum)){
                 value = true;
                 index = i;
                 break;
-            }else {
-                value = false;
             }
         }
 
