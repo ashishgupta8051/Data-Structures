@@ -1,4 +1,4 @@
-package codingquestions;
+package interviewquestions;
 
 public class BinaryTreeIsBST {
     TreeNode root;
