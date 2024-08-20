@@ -1,4 +1,4 @@
-package interviewquestions;
+package string;
 
 public class StringReverse {
     public static void main(String[] args) {

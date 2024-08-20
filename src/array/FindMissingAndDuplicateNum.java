@@ -1,4 +1,4 @@
-package interviewquestions;
+package array;
 
 public class FindMissingAndDuplicateNum {
 

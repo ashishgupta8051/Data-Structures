@@ -1,5 +1,7 @@
 package shorting;
 
+import utils.Utils;
+
 import java.util.Scanner;
 
 public class BubbleShort {
@@ -18,10 +20,8 @@ public class BubbleShort {
 
         int[] sortedlist = doShorting(list);
 
-        System.out.println("*Sorted List*");
-        for (int i : sortedlist) {
-            System.out.println(i);
-        }
+        Utils.displayArray(sortedlist, "Sorted List");
+
 
     }
 
