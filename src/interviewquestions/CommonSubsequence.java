@@ -2,10 +2,10 @@ package interviewquestions;
 
 public class CommonSubsequence {
     public static void main(String[] args) {
-        int[] arr1 = {1, 2, 3, 4, 5};
+        int[] arr1 = {1, 2, 30, 40, 5};
         int[] arr2 = {3, 4, 5, 6, 7};
 
-        int result = findCommonSubsequence(arr1, arr2);
+        int result = findCommonSubsequence2(arr1, arr2);
         System.out.println("Length of common subsequence: " + result);
 
     }
@@ -28,4 +28,21 @@ public class CommonSubsequence {
 
         return dp[m][n];
     }
+
+    private static int findCommonSubsequence2(int[] arr1, int[] arr2) {
+        int count = 0;
+
+        for (int j : arr1) {
+            for (int k : arr2) {
+                if (j == k) {
+                    count = count + 1;
+                }
+            }
+        }
+
+
+        return count;
+    }
+
+
 }

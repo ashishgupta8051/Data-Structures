@@ -1,5 +1,6 @@
 package interviewquestions;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FindDuplicateNumber {
@@ -36,6 +37,7 @@ public class FindDuplicateNumber {
 
         if (duplicateNumber == -1){
             System.out.println("Not Found Duplicate Number");
+            return;
         }else {
             System.out.println("Found Duplicate Number: "+ duplicateNumber);
             System.out.println("Position: "+position);
@@ -55,19 +57,31 @@ public class FindDuplicateNumber {
 
 
     private static void deleteArray(int[] ary, int delete_index_number, int length) {
-        for (int i = delete_index_number; i <= length; i++) {
-            ary[i] = ary[i - 1];
+        ArrayList<Integer> deleteList = new ArrayList<>();
+        for (int i = 0; i < ary.length; i++) {
+            if (i != delete_index_number) {
+                deleteList.add(ary[i]);
+            }
         }
-/*
-        for (int value : ary) {
-            System.out.print(value+" ");
-        }*/
-
+        ary = convertArrayListToIntArray(deleteList);
+        displayArray(ary);
     }
 
     private static void displayArray(int[] ary) {
         for (int value : ary) {
             System.out.print(value+" ");
         }
+    }
+
+    public static int[] convertArrayListToIntArray(ArrayList<Integer> list) {
+        // Initialize the int array with the same size as the ArrayList
+        int[] array = new int[list.size()];
+
+        // Iterate over the ArrayList and copy elements to the int array
+        for (int i = 0; i < list.size(); i++) {
+            array[i] = list.get(i);
+        }
+
+        return array;
     }
 }
