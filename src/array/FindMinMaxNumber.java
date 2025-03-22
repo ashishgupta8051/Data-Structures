@@ -1,5 +1,7 @@
 package array;
 
+import utils.Utils;
+
 import java.util.Scanner;
 
 public class FindMinMaxNumber {
@@ -15,35 +17,56 @@ public class FindMinMaxNumber {
             list[i] = number2;
         }
 
-        System.out.print("Which task do you perform Find Max Number(1) or Find Min Number(2) : ");
-        Scanner scanner2 = new Scanner(System.in);
-        int number2 = scanner2.nextInt();
-        doShorting(list,number2);
-
+        doSearching(list);
+        findMinMaxWithSorting(list, list.length);
     }
 
-    private static void doShorting(int[] list, int number2) {
-        int max = findMax(list,number2);
-        if (number2 == 1){
-            System.out.print("Max Number : "+max);
-        }else {
-            System.out.print("Min Number : "+max);
-        }
-    }
-
-    private static int findMax(int[] list, int number2) {
-        int value = list[0];
-        if (number2 == 1){
-            for (int j : list) {
-                if (j > value) {
-                    value = j;
+    private static void findMinMaxWithSorting(int[] list, int length) {
+        int temp;
+        for (int i = 0; i < length; i++){
+            for (int j = i + 1; j < length; j++){
+                // Ascending Order
+                if (list[i] > list[j]){
+                    temp = list[j];
+                    list[j] = list[i];
+                    list[i] = temp;
                 }
+
+                //Descending Order
+//                if (list[i] < list[j]){
+//                    temp = list[i];
+//                    list[i] = list[j];
+//                    list[j] = temp;
+//                }
             }
-        }else {
-            for (int j : list) {
-                if (j < value) {
-                    value = j;
-                }
+        }
+        Utils.displayArray(list, "Shorting List");
+        Utils.printMessageInNextLine("Max Value: "+list[length - 1]);
+        Utils.printMessageInNextLine("Min Value: "+list[0]);
+    }
+
+    private static void doSearching(int[] list) {
+        int max = findMax(list);
+        int min = findMin(list);
+        Utils.printMessageInNextLine("Max Number : "+max);
+        Utils.printMessageInNextLine("Min Number : "+min);
+    }
+
+    private static int findMin(int[] list) {
+        int value = list[0];
+        for (int i : list) {
+            if (i < value) {
+                value = i;
+            }
+        }
+        return value;
+    }
+
+    private static int findMax(int[] list) {
+        int value = list[0];
+        for (int i : list) {
+            if (i > value) {
+                value = i;
             }
         }
         return value;

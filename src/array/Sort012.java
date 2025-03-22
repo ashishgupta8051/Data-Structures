@@ -4,10 +4,15 @@ import utils.Utils;
 
 public class Sort012 {
     public static void main(String[] args) {
-        int[] arr = {0, 2, 1, 2, 0, 1, 0};
+        int[] arr = {0, 1, 1, 2, 2, 1, 0};
         Utils.displayArray(arr, "Unsorted Array");
-        sortArray(arr);
+//        sortArray(arr);
+        doSorting(arr);
         Utils.displayArray(arr, "Sorted Array");
+    }
+
+    private static void doSorting(int[] arr) {
+
     }
 
     private static void sortArray(int[] arr) {

@@ -3,7 +3,7 @@ package array;
 public class CommonSubsequence {
     public static void main(String[] args) {
         int[] arr1 = {1, 2, 30, 40, 5};
-        int[] arr2 = {3, 4, 5, 6, 7};
+        int[] arr2 = {3, 4, 5, 40, 7};
 
         int result = findCommonSubsequence2(arr1, arr2);
         System.out.println("Length of common subsequence: " + result);

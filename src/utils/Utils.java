@@ -1,6 +1,7 @@
 package utils;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Utils {
 
@@ -26,5 +27,13 @@ public class Utils {
             }
         }
         System.out.println();
+    }
+
+    public static void printMessageInNextLine(String message){
+        System.out.println(message);
+    }
+
+    public static void printMessage(String message){
+        System.out.print(message);
     }
 }
