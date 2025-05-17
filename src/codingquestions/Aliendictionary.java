@@ -76,8 +76,6 @@ class Solution {
 }
 
 
-//{ Driver Code Starts.
-
 public class Aliendictionary {
     private static boolean validate(String[] original, String order) {
         Map<Character, Integer> mp = new HashMap<>();
@@ -144,5 +142,3 @@ public class Aliendictionary {
         sc.close();
     }
 }
-
-// } Driver Code Ends
