@@ -4,7 +4,7 @@ public class PairOfSum {
 
     public static void main(String[] args) {
         int[] ary = {10, 12, 10, 15, -1, 7, 6, 5, 4, 2, 1, 1, 1};
-        int sum = 3;
+        int sum = 11;
 
         pairOfSumCount(ary,sum);
 

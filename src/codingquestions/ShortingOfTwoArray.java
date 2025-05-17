@@ -29,7 +29,6 @@ public class ShortingOfTwoArray {
         int list1Size = list.size();
         int list2Size = list2.size();
 
-        System.out.println(list+""+list2);
 
         while (i < list1Size && j < list2Size){
             int value1 = list.get(i);
