@@ -1,13 +1,11 @@
 package array;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayOperations {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Get array size
         System.out.print("Enter the size of array: ");
         int arraySize = scanner.nextInt();
         if (arraySize <= 0) {
@@ -16,7 +14,6 @@ public class ArrayOperations {
         }
         int[] array = new int[arraySize];
 
-        // Get number of elements to add
         System.out.print("How many numbers do you want to add in array: ");
         int inputSize = scanner.nextInt();
         if (inputSize > arraySize) {
@@ -28,14 +25,12 @@ public class ArrayOperations {
             return;
         }
 
-        // Input array elements
         for (int i = 0; i < inputSize; i++) {
             System.out.print("Enter number " + (i + 1) + ": ");
             array[i] = scanner.nextInt();
         }
         displayArray(array, inputSize);
 
-        // Insert element
         System.out.print("Enter the number to insert in array: ");
         int addNumber = scanner.nextInt();
         System.out.print("Enter the index to insert at (0 to " + inputSize + "): ");
@@ -57,7 +52,6 @@ public class ArrayOperations {
             inputSize = deleteArray(array, deleteIndex, inputSize);
         }
 
-        // Reverse array
         System.out.print("Do you want to reverse the array (Yes: 1, No: 2): ");
         int reverse = scanner.nextInt();
         if (reverse == 1) {
@@ -65,7 +59,6 @@ public class ArrayOperations {
             displayArray(array, inputSize);
         }
 
-        // Search element
         System.out.print("Enter the number to search in array: ");
         int searchNumber = scanner.nextInt();
         searchArray(array, searchNumber, inputSize);
@@ -73,7 +66,6 @@ public class ArrayOperations {
         scanner.close();
     }
 
-    // Reverse array in-place
     private static void reverseArray(int[] array, int size) {
         for (int i = 0; i < size / 2; i++) {
             int temp = array[i];
@@ -82,7 +74,6 @@ public class ArrayOperations {
         }
     }
 
-    // Display array
     private static void displayArray(int[] array, int size) {
         System.out.println("Array is:");
         if (size == 0) {
@@ -99,9 +90,7 @@ public class ArrayOperations {
         }
     }
 
-    // Insert element and return new size
     private static int insertElement(int[] array, int size, int element, int index) {
-        // Shift elements to the right
         for (int i = size; i > index; i--) {
             array[i] = array[i - 1];
         }
@@ -111,9 +100,7 @@ public class ArrayOperations {
         return size;
     }
 
-    // Delete element and return new size
     private static int deleteArray(int[] array, int index, int size) {
-        // Shift elements to the left
         for (int i = index; i < size - 1; i++) {
             array[i] = array[i + 1];
         }
@@ -122,7 +109,6 @@ public class ArrayOperations {
         return size;
     }
 
-    // Search element
     private static void searchArray(int[] array, int number, int size) {
         for (int i = 0; i < size; i++) {
             if (array[i] == number) {
