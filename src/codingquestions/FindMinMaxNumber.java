@@ -31,7 +31,7 @@ public class FindMinMaxNumber {
         }
     }
 
-    private static int findMax(int[] list, int number2) {
+    public static int findMax(int[] list, int number2) {
         int value = list[0];
         if (number2 == 1){
             for (int j : list) {
